@@ -332,3 +332,8 @@ ASALocalRun/
 
 # Local History for Visual Studio
 .localhistory/
+SFML
+SFUI
+wearerocking.sln
+wearerocking/wearerocking.vcxproj.filters
+wearerocking/wearerocking.vcxproj
