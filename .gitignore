@@ -332,8 +332,11 @@ ASALocalRun/
 
 # Local History for Visual Studio
 .localhistory/
+
+# project specific ignores
 SFML
 SFUI
 wearerocking.sln
 wearerocking/wearerocking.vcxproj.filters
 wearerocking/wearerocking.vcxproj
+wearerocking/wearerocking/resources/textures/pdn
