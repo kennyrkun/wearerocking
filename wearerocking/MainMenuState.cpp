@@ -3,8 +3,11 @@
 
 #include "Globals.hpp"
 
+#include <SFWS/SFWS.hpp>
+
 #include <SFUI/SFUI.hpp>
 #include <SFUI/Theme.hpp>
+
 #include <SFML/Graphics.hpp>
 
 #include <iostream>
@@ -20,8 +23,8 @@ void MainMenuState::Init(AppEngine* appEngine)
 	menu = new SFUI::Menu(*app->window);
 	menu->setPosition(sf::Vector2f(app->windowDecorations.sizes.left + 10, app->windowDecorations.sizes.top + app->windowDecorations.sizes.titlebar + 8));
 
-	characterSheetSpriteButtonTexture.loadFromFile(GBL::DIR::textures + "charactersheetbutton.png");
-	campaignSpriteButtonTexture.loadFromFile(GBL::DIR::textures + "campaignbutton.png");
+	characterSheetSpriteButtonTexture.loadFromFile(GBL::DIR::textures + "interface/buttons/charactersheetbutton.png");
+	campaignSpriteButtonTexture.loadFromFile(GBL::DIR::textures + "interface/buttons/campaignbutton.png");
 
 	buildHomeInterface(&app->windowDecorations, *menu);
 }
@@ -89,7 +92,7 @@ void MainMenuState::Draw()
 	app->window->display();
 }
 
-void MainMenuState::buildHomeInterface(VGUI* interface, SFUI::Menu& menu)
+void MainMenuState::buildHomeInterface(SFWS* interface, SFUI::Menu& menu)
 {
 	menu.setPosition(sf::Vector2f(interface->sizes.left + 10, interface->sizes.top + interface->sizes.titlebar + 10));
 

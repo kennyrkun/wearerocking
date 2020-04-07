@@ -2,8 +2,11 @@
 
 #include "Globals.hpp"
 
+#include <SFWS/SFWS.hpp>
+
 #include <SFUI/SFUI.hpp>
 #include <SFUI/Theme.hpp>
+
 #include <SFML/Graphics.hpp>
 
 #include <iostream>
@@ -85,7 +88,7 @@ void CharacterEditState::Draw()
 	app->window->display();
 }
 
-void CharacterEditState::buildHomeInterface(VGUI* interface, SFUI::Menu& menu)
+void CharacterEditState::buildHomeInterface(SFWS* interface, SFUI::Menu& menu)
 {
 	menu.setPosition(sf::Vector2f(interface->sizes.left + 10, interface->sizes.top + interface->sizes.titlebar + 10));
 

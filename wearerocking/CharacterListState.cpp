@@ -3,12 +3,17 @@
 
 #include "Globals.hpp"
 
+#include <SFWS/SFWS.hpp>
+
 #include <SFUI/SFUI.hpp>
 #include <SFUI/Theme.hpp>
+
 #include <SFML/Graphics.hpp>
 
-#include <filesystem>
+#include <experimental/filesystem>
 #include <iostream>
+
+namespace fs = std::experimental::filesystem;
 
 void CharacterListState::Init(AppEngine* appEngine)
 {
@@ -84,7 +89,7 @@ void CharacterListState::Draw()
 	app->window->display();
 }
 
-void CharacterListState::buildHomeInterface(VGUI* interface, SFUI::Menu& menu)
+void CharacterListState::buildHomeInterface(SFWS* interface, SFUI::Menu& menu)
 {
 	menu.setPosition(sf::Vector2f(interface->sizes.left + 10, interface->sizes.top + interface->sizes.titlebar + 10));
 
@@ -103,8 +108,8 @@ void CharacterListState::buildHomeInterface(VGUI* interface, SFUI::Menu& menu)
 std::vector<std::string> CharacterListState::get_directories(const std::string& s)
 {
 	std::vector<std::string> r;
-	for (auto& p : std::experimental::filesystem::directory_iterator(s))
-		if (p.status().type() == std::experimental::filesystem::file_type::directory)
+	for (auto& p : fs::directory_iterator(s))
+		if (p.status().type() == fs::file_type::directory)
 			r.push_back(p.path().string().substr(GBL::DIR::characters.length(), p.path().string().length()));
 	return r;
 }

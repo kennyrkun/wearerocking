@@ -3,8 +3,9 @@
 
 #include "AppState.hpp"
 
-#include <VGUI/VGUI.hpp>
 #include <SFUI/Layouts/Menu.hpp>
+
+class SFWS;
 
 class CharacterCreateState : public AppState
 {
@@ -27,7 +28,7 @@ private:
 	sf::Texture characterSheetSpriteButtonTexture;
 	sf::Texture campaignSpriteButtonTexture;
 
-	void buildHomeInterface(VGUI* interface, SFUI::Menu& menu);
+	void buildHomeInterface(SFWS* interface, SFUI::Menu& menu);
 
 	// TODO: make these follow the normal style for Enums
 	enum CALLBACKS

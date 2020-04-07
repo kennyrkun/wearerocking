@@ -1,7 +1,12 @@
 #include "AppEngine.hpp"
 #include "AppState.hpp"
 
+#include "Globals.hpp"
+
+#include <SFWS/ResourceSettings.hpp>
+
 #include <SFUI/Theme.hpp>
+
 #include <iostream>
 #include <ctime>
 
@@ -15,7 +20,13 @@ void AppEngine::Init(std::string title_, AppSettings settings_)
 
 	window = new sf::RenderWindow(sf::VideoMode(settings.window.width, settings.window.height), title_, sf::Style::None);
 
-	windowDecorations.bindToWindow(window, title_);
+	SFWSUtil::ResourceSettings rsettings;
+	rsettings.resizer = GBL::DIR::textures + "interface/window/resizer.png";
+	rsettings.minimise = GBL::DIR::textures + "interface/window/maximise.png";
+	rsettings.maximise = GBL::DIR::textures + "interface/window/minimise.png";
+	rsettings.close = GBL::DIR::textures + "interface/window/close.png";
+
+	windowDecorations.bindToWindow(window, title_, rsettings);
 	window->setVerticalSyncEnabled(settings.window.verticalSync);
 
 	multithreaded_process_indicator.setRadius(20);
@@ -141,7 +152,11 @@ const std::string AppEngine::currentDateTime()
 	time_t     now = time(0);
 	struct tm  timeinfo;
 	char       buf[80];
+#ifdef _WIN32
 	localtime_s(&timeinfo, &now);
+#else // !_WIN32
+	localtime_r(&now, &timeinfo);
+#endif // _WIN32
 	strftime(buf, sizeof(buf), "%F.%H-%M-%S", &timeinfo);
 
 	return buf;

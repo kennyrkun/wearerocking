@@ -3,11 +3,12 @@
 
 #include "AppState.hpp"
 
-#include <VGUI/VGUI.hpp>
 #include <SFUI/Layouts/Menu.hpp>
 
 #include <string>
 #include <vector>
+
+class SFWS;
 
 class CharacterListState : public AppState
 {
@@ -30,7 +31,7 @@ private:
 	sf::Texture characterSheetSpriteButtonTexture;
 	sf::Texture campaignSpriteButtonTexture;
 
-	void buildHomeInterface(VGUI* interface, SFUI::Menu& menu);
+	void buildHomeInterface(SFWS* interface, SFUI::Menu& menu);
 
 	std::vector<std::string> get_directories(const std::string& s);
 

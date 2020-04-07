@@ -3,7 +3,8 @@
 
 #include "AppSettings.hpp"
 
-#include <VGUI/VGUI.hpp>
+#include <SFWS/SFWS.hpp>
+
 #include <SFML/Graphics.hpp>
 
 #include <vector>
@@ -49,7 +50,7 @@ public:
 	sf::RenderWindow* window;
 	AppSettings settings;
 
-	VGUI windowDecorations;
+	SFWS windowDecorations;
 
 private:
 	// the stack of states

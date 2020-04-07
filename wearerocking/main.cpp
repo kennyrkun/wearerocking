@@ -8,8 +8,8 @@
 
 int main()
 {
-	SFUI::Theme::loadFont(GBL::DIR::fonts + "vgui/tahoma.ttf");
-	SFUI::Theme::loadTexture(GBL::DIR::textures + "vgui/vgui.png");
+	SFUI::Theme::loadFont(GBL::DIR::fonts + "tahoma.ttf");
+	SFUI::Theme::loadTexture(GBL::DIR::textures + "interface/window/vgui.png");
 	SFUI::Theme::textCharacterSize = 11;
 	SFUI::Theme::click.textColor = sf::Color::White;
 	SFUI::Theme::click.textColorHover = sf::Color::White;
@@ -17,6 +17,9 @@ int main()
 	SFUI::Theme::input.textColor = sf::Color::White;
 	SFUI::Theme::input.textColorHover = sf::Color::White;
 	SFUI::Theme::input.textColorFocus = sf::Color::White;
+	SFUI::Theme::label.textColor = sf::Color::White;
+	SFUI::Theme::label.textColorHover = sf::Color::White;
+	SFUI::Theme::label.textColorFocus = sf::Color::White;
 	SFUI::Theme::PADDING = 2.f;
 
 	AppSettings settings;
@@ -57,7 +60,7 @@ int main()
 			SFUI::Theme::input.textColorHover = sf::Color(colors[0], colors[1], colors[2]);
 		}
 
-		std::string interfaceTexture = GBL::DIR::textures + "vgui/vgui.png";
+		std::string interfaceTexture = GBL::DIR::textures + "interface/window/vgui.png";
 		VGUIConfParser.get("interfacetexture", interfaceTexture);
 
 		SFUI::Theme::loadTexture(interfaceTexture);
